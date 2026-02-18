@@ -7,7 +7,18 @@
     "frontend"
   ],
   "scripts": {
+    "install:all": "npm install --workspaces",
+    "start:backend": "npm run build --workspace backend && npm run start --workspace backend",
+    "start:frontend": "npm run dev --workspace frontend",
+    "start:all": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "install-and-run": "npm run install:all && npm run start:all",
+    "docker:build": "docker compose build",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
