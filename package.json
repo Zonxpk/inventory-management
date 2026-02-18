@@ -1,0 +1,13 @@
+{
+  "name": "inventory-management-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces"
+  }
+}

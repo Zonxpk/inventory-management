@@ -1,0 +1,19 @@
+# Node.js / TypeScript
+node_modules/
+dist/
+build/
+*.log
+.env*
+
+# Coverage and artifacts
+coverage/
+.nyc_output/
+
+# Universal
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+ASSIGNMENTS.MD
