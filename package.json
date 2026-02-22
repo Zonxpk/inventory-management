@@ -7,7 +7,14 @@
     "frontend"
   ],
   "scripts": {
+    "install:all": "npm install --workspaces --include-workspace-root",
+    "run": "concurrently \"npm run run:backend\" \"npm run run:frontend\"",
+    "run:backend": "npm run build --workspace backend && npm run start --workspace backend",
+    "run:frontend": "npm run dev --workspace frontend",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
