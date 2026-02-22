@@ -16,13 +16,18 @@
     "pretest": "npm run clean",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test:playwright": "playwright test",
+    "test:playwright:api": "playwright test playwright/tests/api",
+    "test:playwright:ui": "playwright test playwright/tests/ui"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md,yml,yaml,css,scss}": "prettier --write"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.11",
     "prettier": "^3.4.2"

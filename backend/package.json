@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/src/main.js",
+    "start": "node dist/main.js",
+    "start:test": "npm run build && cross-env PORT=3101 node dist/main.js",
     "test": "vitest run",
     "lint": "echo 'No linter configured yet'"
   },

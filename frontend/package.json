@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:test": "cross-env NEXT_PUBLIC_INVENTORY_API_URL=http://127.0.0.1:3101 next dev -p 3100",
     "build": "next build",
     "start": "next start",
     "test": "echo 'No frontend tests yet'",
