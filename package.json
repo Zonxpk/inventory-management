@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "install:all": "npm install --workspaces --include-workspace-root",
-    "prepare": "node --eval \"if (process.env.CI || process.env.VERCEL) process.exit(0)\" && husky",
+    "prepare": "node --eval \"if (!(process.env.CI || process.env.VERCEL || process.env.NODE_ENV === 'production')) require('node:child_process').execSync('npx --no-install husky', { stdio: 'inherit' })\"",
     "run": "concurrently \"npm run run:backend\" \"npm run run:frontend\"",
     "run:backend": "npm run build --workspace backend && npm run start --workspace backend",
     "run:frontend": "npm run dev --workspace frontend",
