@@ -12,6 +12,8 @@
     "run": "concurrently \"npm run run:backend\" \"npm run run:frontend\"",
     "run:backend": "npm run build --workspace backend && npm run start --workspace backend",
     "run:frontend": "npm run dev --workspace frontend",
+    "clean": "node -e \"require('node:fs').rmSync('backend/dist/tests',{recursive:true,force:true})\"",
+    "pretest": "npm run clean",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces",
     "format": "prettier --write ."

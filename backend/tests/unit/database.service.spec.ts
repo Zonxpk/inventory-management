@@ -1,15 +1,20 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { DatabaseService } from "../../src/database/database.service.js";
 
-const queryMock = vi.fn(async () => ({ rows: [] }));
-const endMock = vi.fn(async () => undefined);
-const poolConstructorMock = vi.fn(() => ({
-  query: queryMock,
-  end: endMock,
-}));
+var queryMock: ReturnType<typeof vi.fn>;
+var endMock: ReturnType<typeof vi.fn>;
+var poolConstructorMock: ReturnType<typeof vi.fn>;
 
 vi.mock("pg", () => ({
-  Pool: poolConstructorMock,
+  Pool: (() => {
+    queryMock = vi.fn(async () => ({ rows: [] }));
+    endMock = vi.fn(async () => undefined);
+    poolConstructorMock = vi.fn(() => ({
+      query: queryMock,
+      end: endMock,
+    }));
+    return poolConstructorMock;
+  })(),
 }));
 
 describe("DatabaseService", () => {
