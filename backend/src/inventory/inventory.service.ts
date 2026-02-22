@@ -1,3 +1,4 @@
+import { Injectable } from "@nestjs/common";
 import {
   CreateTransactionDto,
   ProductSummary,
@@ -12,6 +13,7 @@ import {
 import { InventoryState } from "./inventory.state.js";
 import { ProductSummaryService } from "./services/product-summary.service.js";
 
+@Injectable()
 export class InventoryService {
   constructor(
     private readonly state: InventoryState,
