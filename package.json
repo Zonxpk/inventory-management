@@ -8,13 +8,21 @@
   ],
   "scripts": {
     "install:all": "npm install --workspaces --include-workspace-root",
+    "prepare": "husky",
     "run": "concurrently \"npm run run:backend\" \"npm run run:frontend\"",
     "run:backend": "npm run build --workspace backend && npm run start --workspace backend",
     "run:frontend": "npm run dev --workspace frontend",
     "test": "npm run test --workspaces",
-    "lint": "npm run lint --workspaces"
+    "lint": "npm run lint --workspaces",
+    "format": "prettier --write ."
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md,yml,yaml,css,scss}": "prettier --write"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2"
   }
 }
