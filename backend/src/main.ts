@@ -1,6 +1,9 @@
 import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
+import { loadEnv } from "./config/load-env.js";
 import { InventoryModule } from "./inventory/inventory.module.js";
+
+loadEnv();
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(InventoryModule);
